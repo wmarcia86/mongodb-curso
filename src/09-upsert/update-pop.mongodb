@@ -1,0 +1,10 @@
+use("platzi_store")
+
+db.iot.updateOne({
+    sensor: "A001",
+    date: "2022-01-03"
+}, {
+    $pop: {
+        readings: 1 // Al final o -1 es el primer elemento
+    }
+})

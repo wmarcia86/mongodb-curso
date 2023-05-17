@@ -1,0 +1,15 @@
+use("platzi_store")
+
+//db.products.deleteOne({ _id: 1 })
+
+//db.products.deleteOne({ _id: ObjectId("####") })
+
+//db.products.deleteMany({ price: 100 })
+
+//db.products.findOneAndDelete({ _id: 6 })
+
+//db.products.deleteOne({ price: 100})
+
+//db.products.findOneAndDelete({ price: 100})
+
+db.products.drop()

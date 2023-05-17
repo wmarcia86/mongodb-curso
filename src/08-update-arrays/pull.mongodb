@@ -1,0 +1,11 @@
+use("platzi_store")
+
+// Remove one element from array
+db.inventory.updateOne(
+  {_id: 4},
+  {
+    $pull: {
+      tags: "headphone"
+    }
+  }
+)
