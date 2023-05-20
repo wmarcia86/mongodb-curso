@@ -1,0 +1,33 @@
+use("platzi_store")
+
+// $in -> values & arrays
+// db.inventory.find({ qty: { $in: [20, 25] } })
+// db.inventory.find({ tags: { $in: ["book", "electronics"] } })
+
+// $nin -> values & arrays -> el contrario de $in
+// db.inventory.find({ qty: { $nin: [20, 25] } })
+// db.inventory.find({ tags: { $nin: ["book", "electronics"] } })
+
+// arrays
+// db.inventory.find({tags: "book" }) --> Se buscan documentos que en su array de tag tengan book
+// db.inventory.find({tags: ["school", "book"] })
+// db.inventory.find({tags: ["book", "school"] }) // No deuelve valores
+
+// arrays $all solo con campos con arrays, para buscar elementos que se pongan en el array
+// db.inventory.find({ tags: { $all: ["book", "school"] } })
+
+// $size, para busar array que tiene x cantidad de elementos
+// db.inventory.find({ tags: { $size: 2 } })
+
+// $elemMatch, devuelve todos los documentos que dentro de results haya un documento con product xyz 
+// db.survey.find({ results: { $elemMatch: { product: "xyz" } } })
+
+// devuelve todos los documentos que dentro de results haya un documento con product xyz y su score sea mayor o igual a 7
+db.survey.find({ 
+  results: { 
+    $elemMatch: { 
+      product: "xyz", 
+      score: { $gte: 7 } 
+    } 
+  } 
+})
